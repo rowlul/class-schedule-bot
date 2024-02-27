@@ -46,7 +46,7 @@ client.on('ready', async () => {
   await spreadsheet.loadInfo();
   console.log(`${i18n.spreadsheet_name} ${spreadsheet.title}`);
 
-  const channel = await client.channels.fetch(config.schedule.channel_id);
+  const channel = await client.channels.fetch(process.env.CHANNEL_ID);
 
   let eveningScheduleFields = [];
   let eveningScheduleDescription = null;
@@ -116,7 +116,7 @@ client.on('ready', async () => {
 });
 
 client.on('messageCreate', async (message) => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();

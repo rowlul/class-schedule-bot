@@ -16,7 +16,6 @@
     }
   },
   "schedule": {
-    "channel_id": 1129391452934385724,
     "recurrence_rules": {
       "evening": "0 17 * * 1-4,7",
       "morning": "0 8 0 0 1-5"
