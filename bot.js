@@ -4,13 +4,13 @@ import 'dotenv/config';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { scheduleJob } from 'node-schedule';
 import process from 'process';
-import { document, prefix, schedule } from './config/jvg_12_3.json';
-import { ScheduleEmbed } from './embed';
-import i18n from './i18n/lv_LV.json';
+import config from './config/jvg_12_3.json' assert { type: 'json' };
+import { ScheduleEmbed } from './embed.js';
+import i18n from './i18n/lv_LV.json' assert { type: 'json' };
 
 async function getWorksheetDateString(sheet) {
-  await sheet.loadCells(document.cells.date);
-  const date = sheet.getCellByA1(document.cells.date).stringValue;
+  await sheet.loadCells(config.document.cells.date);
+  const date = sheet.getCellByA1(config.document.cells.date).stringValue;
   return date;
 }
 
@@ -36,7 +36,7 @@ const client = new Client({
   ],
 });
 
-const spreadsheet = new GoogleSpreadsheet(document.id, {
+const spreadsheet = new GoogleSpreadsheet(config.document.id, {
   apiKey: process.env.GOOGLE_API_KEY,
 });
 
@@ -46,7 +46,7 @@ client.on('ready', async () => {
   await spreadsheet.loadInfo();
   console.log(`${i18n.spreadsheet_name} ${spreadsheet.title}`);
 
-  const channel = await client.channels.fetch(schedule.channel_id);
+  const channel = await client.channels.fetch(config.schedule.channel_id);
 
   let eveningScheduleFields = [];
   let eveningScheduleDescription = null;
@@ -68,7 +68,7 @@ client.on('ready', async () => {
   };
   scheduleJob(
     'evening_schedule',
-    schedule.recurrence_rules.evening,
+    config.schedule.recurrence_rules.evening,
     sendEveningSchedule,
   );
 
@@ -110,7 +110,7 @@ client.on('ready', async () => {
 
   scheduleJob(
     'morning_schedule',
-    schedule.recurrence_rules.morning,
+    config.schedule.recurrence_rules.morning,
     sendMorningSchedule,
   );
 });
@@ -118,7 +118,7 @@ client.on('ready', async () => {
 client.on('messageCreate', async (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 
   if (command === 'schedule') {
