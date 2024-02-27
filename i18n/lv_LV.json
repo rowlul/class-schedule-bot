@@ -1,0 +1,12 @@
+{
+  "logged_in_as": "Ielogots kā",
+  "spreadsheet_name": "Izklājlapas nosaukums:",
+  "newest_schedule": "Jaunākās izmaiņas",
+  "schedule_absent_changed": "Kopš vakardienas mainījās gan stundu saraksts, gan prombūtnē esošie skolotāji.",
+  "schedule_changed": "Kopš vakardienas mainījās stundu saraksts.",
+  "absent_changed": "Kopš vakardienas mainījušies prombūtnē esošie skolotāji.",
+  "argument_bounds_error": "Kļūme! Diena drīkst būt tikai starp 1 un 5 ieskaitot.",
+  "class_schedule_on_day": "Stundu izmaiņas uz",
+  "absent": "Nav skolā:",
+  "no_new_schedule": "Nav izmaiņu uz šo dienu"
+}

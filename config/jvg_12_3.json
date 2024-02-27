@@ -1,0 +1,33 @@
+{
+  "prefix": "!",
+  "document": {
+    "id": "1wyQulaigwo3-MqHwZYtB7Tk8UvLe6el8rCP0J_sv2VA",
+    "cells": {
+      "date": "E1"
+    },
+    "cellRanges": {
+      "info": "B56:D56",
+      "classes": "M44:O51"
+    },
+    "columns": {
+      "index": "M",
+      "name": "N",
+      "teacher": "O"
+    }
+  },
+  "schedule": {
+    "channel_id": 1129391452934385724,
+    "recurrence_rules": {
+      "evening": "0 17 * * 1-4,7",
+      "morning": "0 8 0 0 1-5"
+    }
+  },
+  "embed": {
+    "color": "15084f",
+    "author": {
+      "name": "JVĢ",
+      "iconURL": "https://jvg.lv/new/wp-content/uploads/2021/10/cropped-JVG_LOGO_ZILS_OUT-192x192.jpg",
+      "url": "https://docs.google.com/spreadsheets/d/1wyQulaigwo3-MqHwZYtB7Tk8UvLe6el8rCP0J_sv2VA"
+    }
+  }
+}
