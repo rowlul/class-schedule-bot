@@ -11,15 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5",
     "@discordjs/builders": "^1.7.0",
     "@discordjs/rest": "^2.2.0",
     "discord-api-types": "^0.37.71",
     "discord.js": "^13.17.1",
+    "dotenv": "^16.4.5",
     "google-spreadsheet": "^4.1.1",
     "node-schedule": "^2.1.1"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.23.10",
+    "@babel/plugin-syntax-import-assertions": "^7.23.3",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
