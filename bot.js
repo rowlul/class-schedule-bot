@@ -19,21 +19,12 @@ function compareEmbedFields(arr1, arr2) {
     arr1 !== null &&
     arr2 !== null &&
     arr1.length === arr2.length &&
-    arr1.every((field1) =>
-      arr2.some(
-        (field2) =>
-          field1.name === field2.name && field1.value === field2.value,
-      ),
-    )
+    arr1.every((field1) => arr2.some((field2) => field1.name === field2.name && field1.value === field2.value))
   );
 }
 
 const client = new Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.MESSAGE_CONTENT,
-  ],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.MESSAGE_CONTENT],
 });
 
 const spreadsheet = new GoogleSpreadsheet(config.document.id, {
@@ -66,11 +57,7 @@ client.on('ready', async () => {
     eveningScheduleFields = embed.fields;
     eveningScheduleDescription = embed.description;
   };
-  scheduleJob(
-    'evening_schedule',
-    config.schedule.recurrence_rules.evening,
-    sendEveningSchedule,
-  );
+  scheduleJob('evening_schedule', config.schedule.recurrence_rules.evening, sendEveningSchedule);
 
   const sendMorningSchedule = async () => {
     const date = new Date();
@@ -82,12 +69,8 @@ client.on('ready', async () => {
     const sheet = spreadsheet.sheetsByIndex[day];
     const embed = await new ScheduleEmbed(sheet).build();
 
-    const areEmbedFieldsEquivalent = compareEmbedFields(
-      embed.fields,
-      eveningScheduleFields,
-    );
-    const areDescriptionsEquivalent =
-      embed.description === eveningScheduleDescription;
+    const areEmbedFieldsEquivalent = compareEmbedFields(embed.fields, eveningScheduleFields);
+    const areDescriptionsEquivalent = embed.description === eveningScheduleDescription;
 
     if (!areEmbedFieldsEquivalent && !areDescriptionsEquivalent) {
       embed.description += bold(`\n${i18n.schedule_absent_changed}`);
@@ -108,11 +91,7 @@ client.on('ready', async () => {
     eveningScheduleDescription = null;
   };
 
-  scheduleJob(
-    'morning_schedule',
-    config.schedule.recurrence_rules.morning,
-    sendMorningSchedule,
-  );
+  scheduleJob('morning_schedule', config.schedule.recurrence_rules.morning, sendMorningSchedule);
 });
 
 client.on('messageCreate', async (message) => {

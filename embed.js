@@ -32,9 +32,7 @@ export class ScheduleEmbed extends MessageEmbed {
     for (let i = 44; i <= 51; i++) {
       const index = this.sheet.getCellByA1(config.document.columns.index + i).value;
       const name = this.sheet.getCellByA1(config.document.columns.name + i).value;
-      const teacher = this.sheet.getCellByA1(
-        config.document.columns.teacher + i,
-      ).value;
+      const teacher = this.sheet.getCellByA1(config.document.columns.teacher + i).value;
 
       if (name) {
         this.fields.push({
