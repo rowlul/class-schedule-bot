@@ -8,8 +8,8 @@
     "start": "node ./bot.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "rowlul",
+  "license": "MIT",
   "dependencies": {
     "@discordjs/builders": "^1.7.0",
     "@discordjs/rest": "^2.2.0",
