@@ -4,6 +4,7 @@
   "description": "Class schedule bot",
   "type": "module",
   "main": "bot.js",
+  "private": true,
   "scripts": {
     "start": "node ./src/main.js"
   },
