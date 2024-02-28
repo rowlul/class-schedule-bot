@@ -1,5 +1,6 @@
 import { bold } from '@discordjs/builders';
 import { MessageEmbed } from 'discord.js';
+
 import config from './config/jvg_12_3.json' assert { type: 'json' };
 import i18n from './i18n/lv_LV.json' assert { type: 'json' };
 

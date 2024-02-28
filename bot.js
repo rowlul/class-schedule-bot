@@ -4,8 +4,9 @@ import 'dotenv/config';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { scheduleJob } from 'node-schedule';
 import process from 'process';
-import config from './config/jvg_12_3.json' assert { type: 'json' };
 import { ScheduleEmbed } from './embed.js';
+
+import config from './config/jvg_12_3.json' assert { type: 'json' };
 import i18n from './i18n/lv_LV.json' assert { type: 'json' };
 
 async function getWorksheetDateString(sheet) {
