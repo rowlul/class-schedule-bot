@@ -1,6 +1,7 @@
+import 'dotenv/config';
+
 import { bold } from '@discordjs/builders';
 import { Client, Intents } from 'discord.js';
-import 'dotenv/config';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { scheduleJob } from 'node-schedule';
 import process from 'process';
@@ -124,4 +125,7 @@ client.on('messageCreate', async (message) => {
   }
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN).catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
