@@ -7,7 +7,6 @@
   "scripts": {
     "start": "node ./src/main.js"
   },
-  "keywords": [],
   "author": "rowlul",
   "license": "MIT",
   "dependencies": {
